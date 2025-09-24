@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Portfolio</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; background: #f9f9f9; }
+    h1 { text-align: center; }
+    .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+    .card { background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .card a { text-decoration: none; color: #0077cc; }
+  </style>
+</head>
+<body>
+  <h1>🚀 My Projects</h1>
+  <div class="projects" id="projects"></div>
+
+  <script>
+    const username = "yourusername";
+    fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById("projects");
+        data.forEach(repo => {
+          if (!repo.fork) {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+              <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+              <p>${repo.description || "No description provided."}</p>
+            `;
+            container.appendChild(card);
+          }
+        });
+      });
+  </script>
+</body>
+</html>
