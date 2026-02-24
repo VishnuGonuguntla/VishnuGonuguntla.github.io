@@ -1,0 +1,38 @@
+---
+layout: default
+title: Projects
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-eyebrow">// portfolio</p>
+      <h1 class="hero-title">{{ site.title }}</h1>
+      <p class="hero-sub">{{ site.description }}</p>
+    </div>
+    <div class="hero-terminal" aria-hidden="true">
+      <div class="terminal-bar"><span></span><span></span><span></span></div>
+      <pre class="terminal-body"><span class="t-dim">$</span> git clone <span class="t-green">your-next-idea</span>
+<span class="t-dim">$</span> cd your-next-idea
+<span class="t-dim">$</span> ./build --with-passion<span class="t-cursor">▌</span></pre>
+    </div>
+  </div>
+</section>
+
+<section class="projects-section">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+
+    {% assign sorted_projects = site.projects | sort: "date" | reverse %}
+
+    {% if sorted_projects.size > 0 %}
+      <div class="projects-grid">
+        {% for project in sorted_projects %}
+          {% include project-card.html project=project %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="empty-state">No projects yet. Add <code>.md</code> files to <code>_projects/</code>.</p>
+    {% endif %}
+  </div>
+</section>

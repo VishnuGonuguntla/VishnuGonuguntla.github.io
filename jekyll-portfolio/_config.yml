@@ -1,0 +1,62 @@
+# =============================================
+#   Site Settings
+# =============================================
+title: "Portfolio Website"
+description: "Developer · Builder · Open Source"
+author: "Vishnu Gonuguntla"
+email: "grajavishnu@gmail.com"
+
+# Your GitHub username — used everywhere
+github_username: "VishnuGonuguntla"
+
+# Base URL for GitHub Pages
+# If your repo is username.github.io → baseurl: ""
+# If it's username.github.io/repo-name → baseurl: "/repo-name"
+baseurl: ""
+url: "https://VishnuGonuguntla.github.io"
+
+# =============================================
+#   Build Settings
+# =============================================
+markdown: kramdown
+highlighter: rouge
+permalink: /projects/:slug/
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
+
+# =============================================
+#   Collections
+# =============================================
+collections:
+  projects:
+    output: true
+    permalink: /projects/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+# =============================================
+#   Plugins
+# =============================================
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# =============================================
+#   Exclude from build
+# =============================================
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
