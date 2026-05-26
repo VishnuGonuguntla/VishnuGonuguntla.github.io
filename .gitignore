@@ -1,0 +1,18 @@
+# Jekyll build output and caches
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Bundler-installed dependencies and local settings
+.bundle/
+vendor/
+
+# Ruby build artifacts
+*.gem
+
+# Local editor and operating system files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

@@ -2,7 +2,7 @@
 #   Site Settings
 # =============================================
 title: "Portfolio Website"
-description: "Developer · Builder · Open Source"
+description: "Software developer portfolio and public projects."
 author: "Vishnu Gonuguntla"
 email: "grajavishnu@gmail.com"
 
@@ -20,28 +20,12 @@ url: "https://VishnuGonuguntla.github.io"
 # =============================================
 markdown: kramdown
 highlighter: rouge
-permalink: /projects/:slug/
 
 kramdown:
   input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     css_class: "highlight"
-
-# =============================================
-#   Collections
-# =============================================
-collections:
-  projects:
-    output: true
-    permalink: /projects/:slug/
-
-defaults:
-  - scope:
-      path: ""
-      type: "projects"
-    values:
-      layout: "project"
 
 # =============================================
 #   Plugins
@@ -60,3 +44,4 @@ exclude:
   - README.md
   - node_modules
   - vendor
+  - files.zip

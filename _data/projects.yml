@@ -1,0 +1,39 @@
+- title: "GPU Computation"
+  description: "Learning and implementation of algorithms using Graphical Processing Units (GPU)."
+  repo_url: "https://github.com/VishnuGonuguntla/gpu_computation"
+  language: "C"
+  tags:
+    - "GPU"
+    - "Algorithms"
+
+- title: "MNIST Classifier"
+  description: "Implementation of a neural network for the MNIST dataset using the C++ Eigen matrix solver."
+  repo_url: "https://github.com/VishnuGonuguntla/mnist-classifier"
+  language: "C++"
+  tags:
+    - "Machine Learning"
+    - "Eigen"
+
+- title: "Portfolio Website"
+  description: "This portfolio website, built with Jekyll and deployed using GitHub Pages."
+  repo_url: "https://github.com/VishnuGonuguntla/VishnuGonuguntla.github.io"
+  language: "Jekyll"
+  tags:
+    - "GitHub Pages"
+    - "Web"
+
+- title: "Numerical Methods in JAX"
+  description: "Implementation of the Burgers equation using JAX in Python."
+  repo_url: "https://github.com/VishnuGonuguntla/numerical_methods_jax"
+  language: "Python"
+  tags:
+    - "JAX"
+    - "Numerical Methods"
+
+- title: "Optimization for Engineers Labs"
+  description: "Algorithm implementations from the Optimization for Engineers course at FAU Erlangen-Nuremberg."
+  repo_url: "https://github.com/VishnuGonuguntla/Labs_OptimizationForEngg-SS25"
+  language: "Python"
+  tags:
+    - "Optimization"
+    - "Coursework"

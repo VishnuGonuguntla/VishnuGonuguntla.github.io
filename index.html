@@ -1,38 +1,93 @@
 ---
 layout: default
-title: Projects
+title: Portfolio
+description: "Vishnu Gonuguntla - software developer portfolio and public projects."
 ---
 
-<section class="hero">
+<section id="hero">
   <div class="container">
-    <div class="hero-content">
-      <p class="hero-eyebrow">// portfolio</p>
-      <h1 class="hero-title">{{ site.title }}</h1>
-      <p class="hero-sub">{{ site.description }}</p>
-    </div>
-    <div class="hero-terminal" aria-hidden="true">
-      <div class="terminal-bar"><span></span><span></span><span></span></div>
-      <pre class="terminal-body"><span class="t-dim">$</span> git clone <span class="t-green">your-next-idea</span>
-<span class="t-dim">$</span> cd your-next-idea
-<span class="t-dim">$</span> ./build --with-passion<span class="t-cursor">▌</span></pre>
+    <p class="hero-eyebrow">Software Developer - Vijayawada, India</p>
+    <h1 class="hero-name">Vishnu<br><em>Gonuguntla</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-tagline">Building thoughtful software at the intersection of full-stack development and applied AI.</p>
+    <div class="hero-cta-row">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" class="btn btn-ghost">GitHub &nearr;</a>
     </div>
   </div>
 </section>
 
-<section class="projects-section">
+<section id="about">
   <div class="container">
-    <h2 class="section-title">Projects</h2>
-
-    {% assign sorted_projects = site.projects | sort: "date" | reverse %}
-
-    {% if sorted_projects.size > 0 %}
-      <div class="projects-grid">
-        {% for project in sorted_projects %}
-          {% include project-card.html project=project %}
-        {% endfor %}
+    <div class="section-header fade-in">
+      <span class="section-label">01</span>
+      <h2 class="section-title">About Me</h2>
+    </div>
+    <div class="about-grid fade-in">
+      <div class="about-text">
+        <p>I'm a developer with a passion for building practical, well-crafted software. My work spans web development, AI/ML experimentation, and open-source projects that solve real problems.</p>
+        <p>I enjoy the craft of writing clean, purposeful code, whether that is a well-structured backend, a responsive front-end, or a machine learning pipeline that generalises.</p>
+        <p>Always learning, always shipping.</p>
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" class="btn">GitHub Profile &nearr;</a>
       </div>
-    {% else %}
-      <p class="empty-state">No projects yet. Add <code>.md</code> files to <code>_projects/</code>.</p>
-    {% endif %}
+      <div class="about-meta">
+        <div class="meta-row">
+          <span class="meta-key">Location</span>
+          <span class="meta-val">Vijayawada, Andhra Pradesh, India</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">GitHub</span>
+          <span class="meta-val">@{{ site.github_username }}</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Focus</span>
+          <span class="meta-val">Full Stack / AI / ML / Open Source</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Status</span>
+          <span class="meta-val status-available">Available for opportunities</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">02</span>
+      <h2 class="section-title">Projects</h2>
+    </div>
+    <div class="projects-grid">
+      {% for project in site.data.projects %}
+        {% include project-card.html project=project index=forloop.index %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">03</span>
+      <h2 class="section-title">Contact</h2>
+    </div>
+    <div class="contact-layout fade-in">
+      <p class="contact-intro">Have a project idea, a role to discuss, or just want to <em>say hello?</em> I'd love to hear from you.</p>
+      <div class="contact-links">
+        <a class="contact-item" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">
+          <span class="contact-icon">GH</span>
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">@{{ site.github_username }} &nearr;</span>
+        </a>
+        {% if site.email %}
+        <a class="contact-item" href="mailto:{{ site.email }}">
+          <span class="contact-icon">@</span>
+          <span class="contact-label">Email</span>
+          <span class="contact-value">{{ site.email }}</span>
+        </a>
+        {% endif %}
+      </div>
+    </div>
   </div>
 </section>

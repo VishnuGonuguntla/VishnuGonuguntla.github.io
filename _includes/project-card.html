@@ -1,0 +1,17 @@
+<a class="project-card fade-in" href="{{ include.project.repo_url }}" target="_blank" rel="noopener">
+  <span class="project-index">{% if include.index < 10 %}0{% endif %}{{ include.index }}</span>
+  <div class="project-name">{{ include.project.title }}</div>
+  <div class="project-desc">{{ include.project.description }}</div>
+  {% if include.project.tags %}
+  <div class="project-tags">
+    {% for tag in include.project.tags %}
+      <span class="project-tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <div class="project-footer">
+    <span class="project-lang">{{ include.project.language }}</span>
+    <span class="project-stars">GitHub repository</span>
+  </div>
+  <span class="project-link">View Project &nearr;</span>
+</a>
