@@ -32,19 +32,3 @@
   tags:
     - "Machine Learning"
     - "Eigen"
-
-- repo: "VishnuGonuguntla/numerical_methods_jax"
-  title: "Numerical Methods in JAX"
-  description: "Implementation of the Burgers equation using JAX in Python."
-  language: "Python"
-  tags:
-    - "JAX"
-    - "Numerical Methods"
-
-- repo: "VishnuGonuguntla/Labs_OptimizationForEngg-SS25"
-  title: "Optimization for Engineers Labs"
-  description: "Algorithm implementations from the Optimization for Engineers course at FAU Erlangen-Nuremberg."
-  language: "Python"
-  tags:
-    - "Optimization"
-    - "Coursework"
