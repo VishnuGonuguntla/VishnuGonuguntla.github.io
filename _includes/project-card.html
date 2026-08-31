@@ -1,17 +1,24 @@
-<a class="project-card fade-in" href="{{ include.project.repo_url }}" target="_blank" rel="noopener">
-  <span class="project-index">{% if include.index < 10 %}0{% endif %}{{ include.index }}</span>
-  <div class="project-name">{{ include.project.title }}</div>
-  <div class="project-desc">{{ include.project.description }}</div>
-  {% if include.project.tags %}
-  <div class="project-tags">
-    {% for tag in include.project.tags %}
-      <span class="project-tag">{{ tag }}</span>
-    {% endfor %}
-  </div>
-  {% endif %}
-  <div class="project-footer">
-    <span class="project-lang">{{ include.project.language }}</span>
-    <span class="project-stars">GitHub repository</span>
-  </div>
-  <span class="project-link">View Project &nearr;</span>
-</a>
+{%- assign repo = include.project.repo -%}
+{%- assign repo_name = repo | split: "/" | last -%}
+{%- assign title = include.project.title | default: repo_name -%}
+{%- assign tag_list = include.project.tags | join: "," | downcase -%}
+<article class="project-card fade-in" data-tags="{{ tag_list }}">
+  <a class="project-card-link" href="{{ '/project/' | relative_url }}?repo={{ repo | url_encode }}">
+    <span class="project-index">{% if include.index < 10 %}0{% endif %}{{ include.index }}{% if include.project.featured %} &middot; pinned{% endif %}</span>
+    <div class="project-name">{{ title }}</div>
+    <div class="project-desc">{{ include.project.description }}</div>
+    {% if include.project.tags %}
+    <div class="project-tags">
+      {% for tag in include.project.tags %}
+        <span class="project-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="project-footer">
+      {% if include.project.language %}<span class="project-lang">{{ include.project.language }}</span>{% endif %}
+      <span class="project-stars">README</span>
+    </div>
+    <span class="project-link">Read the docs &nearr;</span>
+  </a>
+  <a class="project-source" href="https://github.com/{{ repo }}" target="_blank" rel="noopener" aria-label="{{ title }} source on GitHub">Source &nearr;</a>
+</article>

@@ -1,38 +1,49 @@
-- title: "GPU Computation"
+# =============================================================
+#   PROJECTS — single source of truth for the portfolio grid
+# =============================================================
+# To add a project, append one entry below. Only `repo` and
+# `description` are required. Everything else is optional.
+#
+#   repo:        "owner/name"  (required) — the GitHub repository
+#   title:       display name  (optional) — defaults to the repo name
+#   description: one-line summary (required)
+#   language:    primary language label (optional)
+#   tags:        list of topic chips (optional) — used by the filter
+#   homepage:    live/demo URL (optional)
+#   featured:    true to pin near the top (optional)
+#
+# The project card links to /project/?repo=owner/name, which renders
+# that repository's README.md inside this site's layout.
+# =============================================================
+
+- repo: "VishnuGonuguntla/gpu_computation"
+  title: "GPU Computation"
   description: "Learning and implementation of algorithms using Graphical Processing Units (GPU)."
-  repo_url: "https://github.com/VishnuGonuguntla/gpu_computation"
   language: "C"
+  featured: true
   tags:
     - "GPU"
     - "Algorithms"
 
-- title: "MNIST Classifier"
+- repo: "VishnuGonuguntla/mnist-classifier"
+  title: "MNIST Classifier"
   description: "Implementation of a neural network for the MNIST dataset using the C++ Eigen matrix solver."
-  repo_url: "https://github.com/VishnuGonuguntla/mnist-classifier"
   language: "C++"
   tags:
     - "Machine Learning"
     - "Eigen"
 
-- title: "Portfolio Website"
-  description: "This portfolio website, built with Jekyll and deployed using GitHub Pages."
-  repo_url: "https://github.com/VishnuGonuguntla/VishnuGonuguntla.github.io"
-  language: "Jekyll"
-  tags:
-    - "GitHub Pages"
-    - "Web"
-
-- title: "Numerical Methods in JAX"
+- repo: "VishnuGonuguntla/numerical_methods_jax"
+  title: "Numerical Methods in JAX"
   description: "Implementation of the Burgers equation using JAX in Python."
-  repo_url: "https://github.com/VishnuGonuguntla/numerical_methods_jax"
   language: "Python"
   tags:
     - "JAX"
     - "Numerical Methods"
 
-- title: "Optimization for Engineers Labs"
+- repo: "VishnuGonuguntla/Labs_OptimizationForEngg-SS25"
+  title: "Optimization for Engineers Labs"
   description: "Algorithm implementations from the Optimization for Engineers course at FAU Erlangen-Nuremberg."
-  repo_url: "https://github.com/VishnuGonuguntla/Labs_OptimizationForEngg-SS25"
   language: "Python"
   tags:
     - "Optimization"

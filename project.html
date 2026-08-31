@@ -1,0 +1,37 @@
+---
+layout: default
+title: Project
+description: "Project README, rendered inside the portfolio."
+permalink: /project/
+---
+
+<section id="project-hero">
+  <div class="container">
+    <p class="hero-eyebrow" id="ph-eyebrow">Project</p>
+    <h1 class="hero-name" id="ph-title">Loading&hellip;</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-tagline" id="ph-desc"></p>
+    <div class="project-meta-row" id="ph-tags"></div>
+    <div class="hero-cta-row" id="ph-cta">
+      <a href="{{ '/#projects' | relative_url }}" class="btn btn-ghost">&larr; All Projects</a>
+    </div>
+  </div>
+</section>
+
+<section id="project-readme">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">README</span>
+      <h2 class="section-title">Documentation</h2>
+    </div>
+    <article class="readme" id="readme-root">
+      <p class="readme-status">Fetching the latest README from GitHub&hellip;</p>
+    </article>
+  </div>
+</section>
+
+<script>
+  window.PROJECTS = {{ site.data.projects | jsonify }};
+  window.DEFAULT_OWNER = {{ site.github_username | jsonify }};
+</script>
+<script src="{{ '/assets/js/project.js' | relative_url }}"></script>

@@ -184,6 +184,38 @@ section + section { border-top: 1px solid var(--border); }
 .status-available { color: var(--accent); }
 .status-available::before { content: ''; display: inline-block; width: 0.55rem; height: 0.55rem; margin-right: 0.45rem; border-radius: 50%; background: var(--accent); }
 
+/* ─── PROJECT FILTERS ─────────────────────────────────── */
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+.filter-chip {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  background: transparent;
+  border: 1.5px solid var(--border);
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+.filter-chip:hover { border-color: var(--accent); color: var(--accent); }
+.filter-chip.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.projects-empty {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--ink-3);
+  padding: 2rem 0;
+}
+
 /* ─── PROJECTS ────────────────────────────────────────── */
 .projects-grid {
   display: grid;
@@ -194,14 +226,13 @@ section + section { border-top: 1px solid var(--border); }
 }
 .project-card {
   background: var(--paper);
-  padding: 1.8rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
   transition: background 0.2s;
   position: relative;
   overflow: hidden;
 }
+.project-card.is-hidden { display: none; }
 .project-card::after {
   content: '';
   position: absolute;
@@ -209,9 +240,30 @@ section + section { border-top: 1px solid var(--border); }
   width: 3px; height: 0;
   background: var(--accent);
   transition: height 0.25s ease;
+  z-index: 1;
 }
 .project-card:hover { background: var(--paper-2); }
 .project-card:hover::after { height: 100%; }
+.project-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.8rem 1.8rem 1.2rem;
+  flex: 1;
+  color: inherit;
+}
+.project-source {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 0 1.8rem 1.4rem;
+  align-self: flex-start;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.project-source:hover { color: var(--accent); border-color: var(--accent); }
 .project-index {
   font-family: var(--mono);
   font-size: 0.65rem;
@@ -373,4 +425,129 @@ footer .container {
   border: 1px solid var(--accent-2);
   padding: 0.15rem 0.5rem;
   background: transparent;
+}
+
+/* ─── PROJECT PAGE — HERO ─────────────────────────────── */
+#project-hero {
+  padding: clamp(3.5rem, 10vw, 7rem) 0 clamp(2.5rem, 6vw, 4rem);
+  border-bottom: 1px solid var(--border);
+}
+#project-hero .hero-name { font-size: clamp(2.4rem, 6vw, 5rem); }
+.project-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+/* ─── PROJECT PAGE — README PROSE ─────────────────────── */
+.readme {
+  max-width: 760px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+.readme > *:first-child { margin-top: 0; }
+/* GitHub renders clickable anchor octicons beside each heading — hide them */
+.readme .anchor,
+.readme svg.octicon-link { display: none; }
+.readme .markdown-heading { margin-top: 2.25rem; }
+.readme .markdown-heading > .heading-element { margin-top: 0; }
+.readme h1, .readme h2, .readme h3,
+.readme h4, .readme h5, .readme h6 {
+  font-family: var(--serif);
+  color: var(--ink);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 2.25rem 0 0.9rem;
+}
+.readme h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); }
+.readme h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.readme h3 { font-size: 1.25rem; }
+.readme h4 { font-size: 1.05rem; }
+.readme h1, .readme h2 {
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+.readme p { margin: 0 0 1.1rem; }
+.readme a {
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.readme a:hover { border-color: var(--accent); }
+.readme ul, .readme ol { margin: 0 0 1.1rem 1.4rem; }
+.readme li { margin: 0.35rem 0; }
+.readme li > p { margin: 0; }
+.readme blockquote {
+  margin: 1.1rem 0;
+  padding: 0.25rem 0 0.25rem 1.2rem;
+  border-left: 3px solid var(--accent);
+  color: var(--ink-3);
+  font-style: italic;
+}
+.readme code {
+  font-family: var(--mono);
+  font-size: 0.86em;
+  background: var(--paper-2);
+  padding: 0.12rem 0.4rem;
+  border-radius: 3px;
+}
+.readme pre {
+  background: #16150f;
+  color: #eae6da;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  margin: 0 0 1.3rem;
+}
+.readme pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+  color: inherit;
+}
+.readme img { display: inline-block; max-width: 100%; margin: 0.4rem 0; }
+.readme hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
+.readme-table-wrap { overflow-x: auto; margin: 0 0 1.3rem; }
+.readme table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+.readme th, .readme td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.readme th { background: var(--paper-2); font-weight: 500; color: var(--ink); }
+
+/* README states */
+.readme-status {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--ink-3);
+  animation: readme-pulse 1.4s ease-in-out infinite;
+}
+@keyframes readme-pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+.readme-error {
+  border: 1.5px dashed var(--border);
+  padding: 2rem;
+}
+.readme-error-title {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+.readme-error-msg {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  line-height: 1.7;
+}
+.readme-error-msg a { color: var(--accent); }
+.readme-error-msg code {
+  background: var(--paper-2);
+  padding: 0.1rem 0.35rem;
 }
